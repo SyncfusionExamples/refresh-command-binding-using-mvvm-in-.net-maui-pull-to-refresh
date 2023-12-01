@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RefreshCommand.MainPage"
+             xmlns:syncfusion="clr-namespace:Syncfusion.Maui.PullToRefresh;assembly=Syncfusion.Maui.PullToRefresh"
+             xmlns:local="clr-namespace:RefreshCommand">
+
+    <ContentPage.BindingContext>
+        <local:ViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <syncfusion:SfPullToRefresh x:Name="pullToRefresh"
+                                    IsRefreshing="{Binding IsRefreshing}"
+                                    PullingThreshold="100"
+                                    RefreshCommand="{Binding RefreshCommand}">
+            <syncfusion:SfPullToRefresh.PullableContent>
+                <StackLayout BackgroundColor="#00AFF9"
+                             Orientation="Vertical">
+                    <Label Text="New York Temperature"
+                           FontSize="Large"
+                           TextColor="White"
+                           HorizontalTextAlignment="Center"
+                           Margin="20" />
+                    <Label Text="{Binding Temperature}"
+                           FontSize="Large"
+                           TextColor="White"
+                           HorizontalTextAlignment="Center"
+                           Margin="20"
+                           HeightRequest="100" />
+                </StackLayout>
+            </syncfusion:SfPullToRefresh.PullableContent>
+        </syncfusion:SfPullToRefresh>
+    </ContentPage.Content>
+</ContentPage>
